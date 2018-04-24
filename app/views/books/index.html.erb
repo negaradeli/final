@@ -2,6 +2,6 @@
 
 <ul>
     <% for book in Book.all %>
-        <li><%= book.title %></li>
+        <li><a href="/details?id=<%= book.id %>"><%= book.title %></li></a> 
     <% end %>
 </ul>
