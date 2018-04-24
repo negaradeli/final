@@ -18,7 +18,10 @@ class BooksController < ApplicationController
   end
 
   def create
-
+    Book.create title: params["title"],
+                price: (params["price"].to_f * 100).to_i
+    
+    redirect_to "/books"
   end
 
   def edit

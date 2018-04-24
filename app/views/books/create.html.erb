@@ -1,0 +1,9 @@
+<h1>Create</h1>
+
+<% b = Book.create title: params["title"], 
+                price: (params["price"].to_f * 100).to_i %>
+                
+<p>Thanks for adding <%= b.title %>!</p>
+
+
+

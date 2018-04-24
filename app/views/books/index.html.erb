@@ -1,5 +1,17 @@
 <h1>Welcome to Our Bookstore!</h1>
 
+<p>Add a new book:</p>
+
+<form action="/books/create">
+    <p>Title: <input name="title">
+    </p>
+    <p>Price: <input name="price">
+    </p>
+    <button>Add This Book</button>
+</form>
+
+
+
 <ul>
     <% for book in Book.all %>
         <li>
