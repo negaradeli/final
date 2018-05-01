@@ -15,7 +15,7 @@
 <ul>
     <% for book in Book.all %>
         <li>
-            <a href="/details?id=<%= book.id %>">
+            <a href="/books/<%= book.id %>">
                 <%= book.title %>
             </a> 
             <a href="/books/delete?id=<%= book.id %>">[toast]</a>

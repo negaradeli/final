@@ -1,7 +1,8 @@
 class BooksController < ApplicationController
 
   def index
-
+    books = Book.all
+    #redirect_to "https://www.google.com"
   end
 
   def show
