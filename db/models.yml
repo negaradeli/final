@@ -5,7 +5,8 @@ Book
   price: integer
   hardcover: boolean
   photo_url: text
- 
+  author_id: integer
+  
 Author
   name: text
   
