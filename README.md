@@ -4,39 +4,14 @@ For in-class demonstrations.
 
 ### Get This Code
 
-Get the code from GitHub, and then run the console to setup your database.
+First, delete your existing "bookstore" folder.  
 
 ```
-~\code$ git clone https://github.com/kiei925/bookstore.git
+~\code$ git clone https://github.com/kiei925/bookstore
 ~\code$ cd bookstore
-~\code$ rails console
+~\code\bookstore$ bundle install --without production
+~\code\bookstore$ rails db:seed
 ```
 
-### Seed the Database
+Then start the server as usual.
 
-Today we will learn how to use this command:
-
-```
-~/code/bookstore$ rails db:seed
-```
-
-### If You Need To Catch Up...
-
-These commands will discard your current work and get the latest code
-from GitHub. Don't forget the `.` in the `git checkout .` command!
-
-```
-~/code/bookstore$ git checkout .
-~/code/bookstore$ git clean -df
-~/code/bookstore$ git pull
-~/code/bookstore$ rails db:seed
-```
-
-### Update Your Cloud9 Tools
-
-An update is available.  You can install it like this:
-
-```
-~/code$ curl -sL https://www.kiei925.com/c9setup | bash -E -
-```
-This update fixes a few typos in the generated HTML files when you create new applications with the `rails new` command.
