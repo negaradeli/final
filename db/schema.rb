@@ -20,13 +20,13 @@ ActiveRecord::Schema.define(version: 0) do
 
   create_table "books", force: :cascade do |t|
     t.text "title"
+    t.text "summary"
     t.integer "price"
     t.boolean "hardcover", default: false
     t.text "photo_url"
     t.integer "author_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text "summary"
     t.index ["author_id"], name: "index_books_on_author_id"
   end
 

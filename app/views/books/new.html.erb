@@ -10,7 +10,21 @@
 
     <p class="form-group">Price: <input class="form-control" name="price"></p>
 
-    <p class="form-group">Author: <input class="form-control" name="author"></p>
+    <p class="form-group">Author: 
+    
+      <select name="author_id">
+        
+        <% for author in Author.all %>
+          <option value="<%= author.id %>">
+            <%= author.name %>
+          </option>
+        <% end %>
+        
+      </select>
+    
+    
+    
+    </p>
 
     <p class="form-group">Link to Photo: <input class="form-control" name="photo_ul"></p>
 

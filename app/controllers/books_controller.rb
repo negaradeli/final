@@ -19,11 +19,9 @@ class BooksController < ApplicationController
   end
 
   def create
-    author = Author.create name: params["author"]
-
     Book.create title: params["title"],
                 price: (params["price"].to_f * 100).to_i,
-                author: author.id,
+                author_id: params["author_id"],
                 summary: params["summary"],
                 photo_url: params["photo_url"]
 
