@@ -1,26 +1,15 @@
-<h1>Welcome to Our Bookstore!</h1>
 
-<p>Add a new book:</p>
-
-<form action="/books/create">
-    <p>Title: <input name="title">
-    </p>
-    <p>Price: <input name="price">
-    </p>
-    <p>Author: <input name="author">
-    </p>
-    <button>Add This Book</button>
-</form>
-
-
+<p>
+  <a class="float-right btn btn-primary" href="/books/new">Add a New Book</a>
+<p>
 
 <ul>
-    <% for book in Book.all %>
-        <li>
-            <a href="/books/<%= book.id %>">
-                <%= book.title %>
-            </a> 
-            <a href="/books/delete?id=<%= book.id %>">[toast]</a>
-        </li>
-    <% end %>
+  <% for book in Book.all %>
+    <li>
+      <a href="/books/<%= book.id %>">
+          <%= book.title %>
+      </a>
+      <a href="/books/delete?id=<%= book.id %>">[toast]</a>
+    </li>
+  <% end %>
 </ul>

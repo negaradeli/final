@@ -2,14 +2,15 @@
 #
 Book
   title: text
+  summary: text
   price: integer
   hardcover: boolean
   photo_url: text
   author_id: integer
-  
+
 Author
   name: text
-  
+
 #
 #
 # Indent consistently!  Follow the above syntax exactly.

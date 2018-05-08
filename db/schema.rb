@@ -22,10 +22,11 @@ ActiveRecord::Schema.define(version: 0) do
     t.text "title"
     t.integer "price"
     t.boolean "hardcover", default: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.text "photo_url"
     t.integer "author_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text "summary"
     t.index ["author_id"], name: "index_books_on_author_id"
   end
 
