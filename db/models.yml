@@ -1,5 +1,8 @@
-# Example:
-#
+User
+  name: text
+  email: text
+  password: text
+  
 Book
   title: text
   summary: text

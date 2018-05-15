@@ -5,13 +5,20 @@ Rails.application.routes.draw do
   get "/" => 'books#index'
 
   get "/books" => "books#index"
-
-
   get "/books/new" => "books#new"
   get "/books/create" => "books#create"
   get "/books/:id/delete" => "books#destroy"
   get "/books/:id" => "books#show"
-  
   get "/books/:id/edit" => "books#edit"
   get "/books/:id/update" => "books#update"
+  
+  get "/users" => "users#index"
+  get "/users/new" => "users#new"
+  get "/users/create" => "users#create"
+  get "/users/:id/delete" => "users#destroy"
+  get "/users/:id" => "users#show"
+  get "/users/:id/edit" => "users#edit"
+  get "/users/:id/update" => "users#update"
+  
+  
 end

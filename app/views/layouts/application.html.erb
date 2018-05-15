@@ -15,12 +15,48 @@
   </head>
   <body>
 
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="/">Bookstore</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/books">Books</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/authors">Authors</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/users/new">Sign Up</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Sign In</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
     <div class="container-fluid mt-3">
 
-      <h1>Wazzzzzzzup! Welcome to Our Bookstore!</h1>
-      <hr>
+      <% if notice.present? %>
+        <div class="alert alert-info">
+          <%= notice %>
+        </div>
+      <% end %>
+      
       <%= yield %>
 
+      <hr>
+      
+      <p>
+        <strong>
+          Recently viewed:
+        </strong>
+        
+        Hamlet
+      </p>
     </div>
 
 

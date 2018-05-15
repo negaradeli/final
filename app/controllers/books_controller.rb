@@ -11,7 +11,7 @@ class BooksController < ApplicationController
 
   def destroy
     Book.delete(params["id"])
-    redirect_to "/books"
+    redirect_to "/books", notice: "That book is toast!"
   end
 
   def new
@@ -25,7 +25,7 @@ class BooksController < ApplicationController
                 summary: params["summary"],
                 photo_url: params["photo_url"]
 
-    redirect_to "/books"
+    redirect_to "/books", notice: "Thanks for adding a book!"
   end
 
   def edit
@@ -41,7 +41,7 @@ class BooksController < ApplicationController
                 photo_url: params["photo_url"],
                 price: params["price"].to_f * 100
 
-    redirect_to "/books/#{book.id}"
+    redirect_to "/books/#{book.id}", notice: "Book updated."
   end
 
 end
