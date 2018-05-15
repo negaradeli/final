@@ -31,9 +31,15 @@
           <li class="nav-item">
             <a class="nav-link" href="/users/new">Sign Up</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Sign In</a>
-          </li>
+          <% if session["user_id"] == nil %>
+            <li class="nav-item">
+              <a class="nav-link" href="/login">Sign In</a>
+            </li>
+          <% else %>
+            <li class="nav-item">
+              Hello <%= User.find_by(id: session["user_id"]).name %>
+            </li>
+          <% end %>
         </ul>
       </div>
     </nav>
@@ -55,7 +61,7 @@
           Recently viewed:
         </strong>
         
-        Hamlet
+        <%=  cookies["title"] %>
       </p>
     </div>
 

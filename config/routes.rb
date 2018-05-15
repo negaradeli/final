@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   
   get "/" => 'books#index'
 
+  get "/login" => "sessions#new"
+  get "/sessions/create" => 'sessions#create'
+  
   get "/books" => "books#index"
   get "/books/new" => "books#new"
   get "/books/create" => "books#create"

@@ -1,4 +1,5 @@
 <% b = Book.find_by(id: params["id"]) %>
+<% cookies["title"] = b.title %>
 
 <a href="/books/<%= b.id %>/edit" class="btn btn-danger float-right">Edit This Book</a>
 
