@@ -13,7 +13,20 @@
 
     <p class="form-group">Price: <input value="<%= book.price.to_f / 100.0 %>" class="form-control" name="price"></p>
 
-    <p class="form-group">Author ID: <input value="<%= book.author_id %>" class="form-control" name="author"></p>
+    <p class="form-group">Author:
+    <select name="author_id">
+        
+        <% for author in Author.all %>
+          <option value="<%= author.id %>" 
+            <% if author.id == book.author_id %>
+              selected
+            <% end %>
+          >
+            <%= author.name %>
+          </option>
+        <% end %>
+        
+    </p>
 
     <p class="form-group">Link to Photo: <input value="<%= book.photo_url %>" class="form-control" name="photo_url"></p>
 
