@@ -1,0 +1,25 @@
+<center>
+<h1>Leave your pet to an amazing host or become an amazing pet host</h1>
+<form action="/petbnb/show" class='col-sm-5'>
+<input class="form-control" type="text" name="search" placeholder="Search rentals..." required>
+<button class="btn btn-primary">Submit</button>
+</form>
+<hr>
+<h3>Results</h3>
+<p><b>Search term: </b> <%= params["search"] %></p>
+</center>
+<ul>
+  <% for rental in Rentals.all %>
+    <% if rental.title.include? params["search"] or
+          rental.location.include? params["search"] %>
+        <li>
+          <a href="/rentals/<%= rental.id %>">
+              <%= rental.title %> [<%= rental.location %>]
+          </a>
+          <% if rental.host_id == session["host_id"] %>
+          <a href="/rentals/<%= rental.id %>/delete">[delete]</a>
+          <% end %>
+        </li>
+    <% end %>
+  <% end %>
+</ul>

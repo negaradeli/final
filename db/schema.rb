@@ -12,30 +12,40 @@
 
 ActiveRecord::Schema.define(version: 0) do
 
-  create_table "authors", force: :cascade do |t|
-    t.text "name"
+  create_table "bookings", force: :cascade do |t|
+    t.datetime "date"
+    t.integer "user_id"
+    t.integer "host_id"
+    t.integer "rental_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.index ["host_id"], name: "index_bookings_on_host_id"
+    t.index ["rental_id"], name: "index_bookings_on_rental_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
-  create_table "books", force: :cascade do |t|
+  create_table "rentals", force: :cascade do |t|
     t.text "title"
     t.text "summary"
     t.integer "price"
-    t.boolean "hardcover", default: false
     t.text "photo_url"
-    t.integer "author_id"
+    t.integer "host_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.index ["author_id"], name: "index_books_on_author_id"
+    t.text "location"
+    t.index ["host_id"], name: "index_rentals_on_host_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.text "name"
     t.text "email"
-    t.text "password"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text "pets"
+    t.boolean "is_host", default: false
+    t.text "password_digest"
   end
 
 end

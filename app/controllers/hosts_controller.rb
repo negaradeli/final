@@ -1,4 +1,4 @@
-class AuthorsController < ApplicationController
+class HostsController < ApplicationController
 
   def index
 

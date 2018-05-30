@@ -1,19 +1,24 @@
 Rails.application.routes.draw do
 
-  # root 'books#index' 
+  # root 'petbnb#index' 
   
-  get "/" => 'books#index'
-
+  get "/" => 'petbnb#index'
+  get "petbnb/show" => "petbnb#show"
   get "/login" => "sessions#new"
   get "/sessions/create" => 'sessions#create'
+  get "/logout" => "sessions#destroy"
   
-  get "/books" => "books#index"
-  get "/books/new" => "books#new"
-  get "/books/create" => "books#create"
-  get "/books/:id/delete" => "books#destroy"
-  get "/books/:id" => "books#show"
-  get "/books/:id/edit" => "books#edit"
-  get "/books/:id/update" => "books#update"
+  get "/rentals" => "rentals#index"
+  get "/rentals/new" => "rentals#new"
+  get "/rentals/create" => "rentals#create"
+  get "/rentals/:id/delete" => "rentals#destroy"
+  get "/rentals/:id" => "rentals#show"
+  get "/rentals/:id/edit" => "rentals#edit"
+  get "/rentals/:id/update" => "rentals#update"
+  
+  get "/myaccount" => "users#show"
+  get "/bookings/:id" => "bookings#show"
+  get "/bookings/:id/create" => "bookings#create"
   
   get "/users" => "users#index"
   get "/users/new" => "users#new"

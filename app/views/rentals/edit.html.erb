@@ -1,0 +1,29 @@
+<% rental = Rentals.find_by(id: params["id"]) %>
+
+<div class="row">
+  <div class="col-sm-12">
+    <h3>Edit This Rental</h3>
+  </div>
+</div>
+
+<div class="row">
+  <form action="/rentals/<%= rental.id %>/update" class="col-sm-6">
+
+    <p class="form-group">Title: <input value="<%= rental.title %>" autofocus class="form-control" name="title" required></p>
+
+    <p class="form-group">Price: <input value="<%= rental.price %>" class="form-control" name="price" required></p>
+
+    <p class="form-group">Link to Photo: <input value="<%= rental.photo_url %>" class="form-control" name="photo_url" required></p>
+    
+    <p class="form-group">Location: <input value="<%= rental.location %>" autofocus class="form-control" name="location" required></p>
+    
+    <p class="form-group">Summary:
+      <textarea rows="5" class="form-control" name="summary"><%= rental.summary %></textarea>
+    </p>
+
+    <button class="btn btn-primary">Update</button>
+    or
+    <a href="/">Cancel</a>
+
+  </form>
+</div>

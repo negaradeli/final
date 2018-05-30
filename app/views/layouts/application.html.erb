@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Bookstore</title>
+    <title>PetBnB</title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -16,36 +16,37 @@
   <body>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="/">Bookstore</a>
+      <a class="navbar-brand" href="/">PetBnB</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="/books">Books</a>
+            <a class="nav-link" href="/rentals">Rentals</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/authors">Authors</a>
-          </li>
+          <% if session["user_id"] == nil %>
           <li class="nav-item">
             <a class="nav-link" href="/users/new">Sign Up</a>
           </li>
-          <% if session["user_id"] == nil %>
+          <% end %>
+          <% if session["user_id"] == nil%>
             <li class="nav-item">
               <a class="nav-link" href="/login">Sign In</a>
             </li>
           <% else %>
             <li class="nav-item">
-              Hello <%= User.find_by(id: session["user_id"]).name %>
+              <a class="nav-link" href="/myaccount">My Account</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/logout">Sign Out</a>
             </li>
           <% end %>
         </ul>
       </div>
     </nav>
-
+    
     <div class="container-fluid mt-3">
-
       <% if notice.present? %>
         <div class="alert alert-info">
           <%= notice %>
@@ -53,19 +54,7 @@
       <% end %>
       
       <%= yield %>
-
-      <hr>
-      
-      <p>
-        <strong>
-          Recently viewed:
-        </strong>
-        
-        <%=  cookies["title"] %>
-      </p>
     </div>
-
-
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>

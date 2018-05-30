@@ -1,0 +1,20 @@
+<h1>Rentals</h1>
+
+<% if session["user_id"] != nil and session["host_id"] != nil%>
+<p>
+  <a class="float-right btn btn-primary" href="/rentals/new">Add a New Rental</a>
+<p>
+<% end %>
+
+<ul>
+  <% for rental in Rentals.all %>
+    <li>
+      <a href="/rentals/<%= rental.id %>">
+          <%= rental.title %> [<%= rental.location %>]
+      </a>
+      <% if rental.host_id == session["host_id"] %>
+      <a href="/rentals/<%= rental.id %>/delete">[delete]</a>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
