@@ -13,7 +13,7 @@
   <div class="col-sm-3 d-flex flex-column align-items-center">
 
     <% if host != nil %>
-        <p>Hosted by <a href="/hosts/<%= host.id %>"><%= host.name %></a></p>
+        <p>Hosted by <%= host.name %></p>
         <p><b>Pets: </b> <%= host.pets %></p>
     <% else %>
         <p>Host unknown.</p>
